@@ -27,7 +27,7 @@ export default function CheckoutForm({ cartItems, onSubmitPurchase, isSubmitting
 
       <form className="checkout-form" onSubmit={handleSubmit}>
         <label>
-          Customer Name
+          Name
           <input
             type="text"
             name="name"
@@ -38,7 +38,7 @@ export default function CheckoutForm({ cartItems, onSubmitPurchase, isSubmitting
         </label>
 
         <label>
-          Customer Email
+          Email
           <input
             type="email"
             name="email"

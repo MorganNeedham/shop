@@ -1,37 +1,41 @@
-export default function OrderConfirmation({ order }) {
+export default function OrderConfirmation({ order, onContinueShopping }) {
   if (!order) {
     return null;
   }
 
-  return (
-    <section className="panel success-panel">
-      <p className="eyebrow">Fulfilled by Node.js Express</p>
-      <h2>Order Confirmation</h2>
-      <p>{order.fulfillmentMessage}</p>
+  const orderNumber = order.id ?? order.orderId ?? "Demo Order";
+  const total = Number(order.total ?? 0);
 
-      <div className="confirmation-grid">
-        <div>
-          <span>Order ID</span>
-          <strong>{order.orderId}</strong>
-        </div>
-        <div>
-          <span>Status</span>
-          <strong>{order.status}</strong>
-        </div>
-        <div>
-          <span>Total</span>
-          <strong>${order.total.toFixed(2)}</strong>
-        </div>
+  return (
+    <section className="thank-you-panel panel">
+      <p className="eyebrow">Order Received</p>
+
+      <h2>Thank you for exploring ShadowBlade Dice Shop.</h2>
+
+      <p>
+        Your demo order has been received. No payment has been processed — this
+        checkout is part of Morgan’s software development portfolio.
+      </p>
+
+      <p>
+        ShadowBlade Dice Shop is currently a full-stack practice project built
+        with React, Express, and custom styling. One day, it may grow into
+        something real. For now, thank you for supporting the journey.
+      </p>
+
+      <div className="order-summary-box">
+        <span>Demo Order</span>
+        <strong>#{orderNumber}</strong>
       </div>
 
-      <h3>Fulfilled Items</h3>
-      <ul className="fulfilled-list">
-        {order.lineItems.map((item) => (
-          <li key={item.productId}>
-            {item.quantity} × {item.name} — ${item.lineTotal.toFixed(2)}
-          </li>
-        ))}
-      </ul>
+      <div className="order-summary-box">
+        <span>Total</span>
+        <strong>${total.toFixed(2)}</strong>
+      </div>
+
+      <button className="primary-button" onClick={onContinueShopping}>
+        Continue Shopping
+      </button>
     </section>
   );
 }

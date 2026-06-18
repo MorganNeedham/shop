@@ -124,6 +124,11 @@ export default function App() {
         <section className="panel">
           <p>Loading dice sets...</p>
         </section>
+      ) : order ? (
+        <OrderConfirmation
+          order={order}
+          onContinueShopping={() => setOrder(null)}
+        />
       ) : (
         <main className="layout-grid">
           <ProductCatalog products={products} onAddToCart={addToCart} />
@@ -141,8 +146,6 @@ export default function App() {
               onSubmitPurchase={handleSubmitPurchase}
               isSubmitting={isSubmitting}
             />
-
-            <OrderConfirmation order={order} />
           </aside>
         </main>
       )}

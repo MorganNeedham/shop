@@ -1,33 +1,63 @@
 export default function Cart({ cartItems, onIncrement, onDecrement, onRemove }) {
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const subtotal = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
 
   return (
     <section className="panel">
       <div className="section-title-row">
         <div>
-          <p className="eyebrow">Dice</p>
-          <h2>Shopping Cart</h2>
+          <p className="eyebrow">Order Summary</p>
+          <h2>Your Cart</h2>
         </div>
       </div>
 
       {cartItems.length === 0 ? (
-        <p className="empty-message">Your cart is empty. Add products from the catalog.</p>
+        <p className="empty-message">
+          Your cart is empty. Choose a dice set to begin your order.
+        </p>
       ) : (
         <div className="cart-list">
           {cartItems.map((item) => (
-            <div className="cart-row" key={item.productId}>
-              <div>
+            <article className="cart-item" key={item.productId}>
+              <div className="cart-item-main">
                 <strong>{item.name}</strong>
                 <p>${item.price.toFixed(2)} each</p>
               </div>
-              <div className="quantity-controls">
-                <button onClick={() => onDecrement(item.productId)}>-</button>
+
+              <div className="cart-controls">
+                <button
+                  type="button"
+                  onClick={() => onDecrement(item.productId)}
+                  aria-label={`Decrease quantity of ${item.name}`}
+                >
+                  -
+                </button>
+
                 <span>{item.quantity}</span>
-                <button onClick={() => onIncrement(item.productId)}>+</button>
+
+                <button
+                  type="button"
+                  onClick={() => onIncrement(item.productId)}
+                  aria-label={`Increase quantity of ${item.name}`}
+                >
+                  +
+                </button>
               </div>
-              <strong>${(item.price * item.quantity).toFixed(2)}</strong>
-              <button className="link-button" onClick={() => onRemove(item.productId)}>Remove</button>
-            </div>
+
+              <div className="cart-item-footer">
+                <strong>${(item.price * item.quantity).toFixed(2)}</strong>
+
+                <button
+                  type="button"
+                  className="link-button"
+                  onClick={() => onRemove(item.productId)}
+                >
+                  Remove
+                </button>
+              </div>
+            </article>
           ))}
         </div>
       )}
