@@ -15,7 +15,6 @@ export default function Header({ cartCount, onCartClick }) {
         </div>
 
         <div className="hero-copy">
-          <p className="brand-kicker">Handmade resin dice</p>
 
           <h1 className="brand-title">ShadowBlade Dice</h1>
 
