@@ -44,8 +44,9 @@ button:disabled {
 /* HEADER */
 
 .site-header {
+  position: relative;
   margin-bottom: 28px;
-  padding: 42px;
+  padding: 34px 44px;
   border: 1px solid rgba(0, 229, 255, 0.22);
   border-radius: 28px;
   background:
@@ -60,69 +61,15 @@ button:disabled {
 
 .header-topline {
   display: flex;
-  justify-content: space-between;
-  gap: 24px;
+  justify-content: flex-end;
   align-items: center;
-  margin-bottom: 28px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.brand-copy {
-  display: grid;
-  gap: 4px;
-}
-
-.logo-frame {
-  display: grid;
-  place-items: center;
-  width: 104px;
-  height: 104px;
-  flex: 0 0 auto;
-  border: 1px solid rgba(103, 232, 249, 0.28);
-  border-radius: 26px;
-  background:
-    radial-gradient(circle at center, rgba(0, 229, 255, 0.2), transparent 62%),
-    rgba(0, 229, 255, 0.045);
-  box-shadow:
-    0 0 30px rgba(0, 229, 255, 0.16),
-    0 0 38px rgba(147, 51, 234, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-.header-logo {
-  width: 92px;
-  height: 92px;
-  object-fit: contain;
-  transform: scale(1.25);
-  filter:
-    drop-shadow(0 0 12px rgba(0, 229, 255, 0.5))
-    drop-shadow(0 0 20px rgba(147, 51, 234, 0.4));
-}
-
-.logo-text {
-  display: block;
-  color: #67e8f9;
-  font-size: 0.95rem;
-  font-weight: 950;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.brand-subtitle {
-  margin: 5px 0 0;
-  color: #a78bfa;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
 .cart-pill {
+  position: absolute;
+  top: 34px;
+  right: 44px;
   padding: 9px 16px;
   border: 1px solid rgba(0, 229, 255, 0.32);
   border-radius: 999px;
@@ -133,17 +80,80 @@ button:disabled {
   white-space: nowrap;
 }
 
-.site-header h1 {
-  max-width: 960px;
-  margin: 0 0 16px;
+.cart-pill:hover {
+  background: rgba(0, 229, 255, 0.14);
+  box-shadow: 0 0 18px rgba(0, 229, 255, 0.15);
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 44px;
+  align-items: center;
+}
+
+.hero-logo-wrap {
+  display: grid;
+  place-items: center;
+  width: 240px;
+  height: 240px;
+  flex: 0 0 auto;
+}
+
+.hero-logo {
+  width: 235px;
+  height: 235px;
+  object-fit: contain;
+  transform: scale(1.12);
+  filter:
+    drop-shadow(0 0 16px rgba(0, 229, 255, 0.55))
+    drop-shadow(0 0 30px rgba(147, 51, 234, 0.4));
+}
+
+.hero-copy {
+  display: grid;
+  gap: 18px;
+}
+
+.brand-copy {
+  display: grid;
+  justify-items: center;
+  width: fit-content;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+
+.logo-text {
+  display: block;
+  color: #67e8f9;
+  font-size: 1rem;
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.brand-subtitle {
+  margin: 0;
+  color: #c4b5fd;
+  font-size: 0.82rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.hero-copy h1 {
+  max-width: 980px;
+  margin: 0;
   font-size: clamp(2.7rem, 5vw, 5.25rem);
   line-height: 0.95;
   letter-spacing: -0.06em;
   text-shadow: 0 0 28px rgba(147, 51, 234, 0.35);
 }
 
-.site-header p {
-  max-width: 720px;
+.hero-copy p {
+  max-width: 780px;
   margin: 0;
   color: #c8c8df;
   font-size: 1.08rem;
@@ -505,9 +515,49 @@ button:disabled {
   .sidebar {
     position: static;
   }
+
+  .hero-content {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .hero-logo-wrap {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero-logo {
+    width: 210px;
+    height: 210px;
+  }
 }
 
 @media (max-width: 760px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .hero-logo-wrap {
+    width: 170px;
+    height: 170px;
+  }
+
+  .hero-logo {
+    width: 165px;
+    height: 165px;
+    transform: scale(1.1);
+  }
+
+  .brand-copy {
+    justify-items: start;
+  }
+
+  .logo-text,
+  .brand-subtitle {
+    text-align: left;
+  }
+
   .product-detail-grid {
     grid-template-columns: 1fr;
   }
@@ -527,29 +577,38 @@ button:disabled {
     padding: 24px;
   }
 
-  .header-topline,
+  .header-topline {
+    justify-content: flex-start;
+    margin-bottom: 24px;
+  }
+
   .section-title-row {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .brand {
-    align-items: center;
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 22px;
   }
 
-  .logo-frame {
-    width: 62px;
-    height: 62px;
-    border-radius: 16px;
+  .hero-logo-wrap {
+    width: 150px;
+    height: 150px;
   }
 
-  .header-logo {
-    width: 48px;
-    height: 48px;
+  .hero-logo {
+    width: 145px;
+    height: 145px;
+    transform: scale(1.1);
   }
 
-  .site-header h1 {
+  .hero-copy h1 {
     font-size: clamp(2.2rem, 13vw, 3.2rem);
+  }
+
+  .hero-copy p {
+    font-size: 1rem;
   }
 
   .product-card {

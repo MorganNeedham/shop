@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { fetchProducts, submitPurchase } from './api/catalogApi.js';
 import Header from './components/Header.jsx';
 import ProductCatalog from './components/ProductCatalog.jsx';
@@ -14,6 +14,15 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
+
+  const checkoutRef = useRef(null);
+
+  function scrollToCheckout() {
+    checkoutRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
 
   async function loadProducts() {
     try {
@@ -85,7 +94,9 @@ export default function App() {
   }
 
   function remove(productId) {
-    setCartItems((current) => current.filter((item) => item.productId !== productId));
+    setCartItems((current) =>
+      current.filter((item) => item.productId !== productId)
+    );
   }
 
   async function handleSubmitPurchase(customer) {
@@ -105,29 +116,32 @@ export default function App() {
 
   return (
     <div className="app-shell">
-      <Header cartCount={cartCount} />
+      <Header cartCount={cartCount} onCartClick={scrollToCheckout} />
 
       {error && <div className="error-banner">{error}</div>}
 
       {isLoading ? (
         <section className="panel">
-          <p>Loading products from the Node.js Express server...</p>
+          <p>Loading dice sets...</p>
         </section>
       ) : (
         <main className="layout-grid">
           <ProductCatalog products={products} onAddToCart={addToCart} />
-          <aside className="sidebar">
+
+          <aside className="sidebar" ref={checkoutRef}>
             <Cart
               cartItems={cartItems}
               onIncrement={increment}
               onDecrement={decrement}
               onRemove={remove}
             />
+
             <CheckoutForm
               cartItems={cartItems}
               onSubmitPurchase={handleSubmitPurchase}
               isSubmitting={isSubmitting}
             />
+
             <OrderConfirmation order={order} />
           </aside>
         </main>
