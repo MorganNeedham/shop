@@ -1,14 +1,17 @@
 export default function Header({ cartCount }) {
   return (
-    <header className="app-header">
-      <div>
-        <p className="eyebrow">ShadowBlade Dice Shop</p>
-        <h1>Dice for your tabletop adventures</h1>
-        <p className="header-copy">
-          Browse our selection of high-quality dice for all your gaming needs.
-        </p>
+    <header className="site-header">
+      <div className="header-topline">
+        <span className="logo-text">ShadowBlade Dice Shop</span>
+        <span className="cart-pill">Cart Items: {cartCount}</span>
       </div>
-      <div className="cart-pill">Cart Items: {cartCount}</div>
+
+      <h1>Sharp-edge dice for dangerous rolls</h1>
+
+      <p>
+        Shop black, teal, and violet dice sets built for rogues, spellcasters,
+        dungeon delvers, and dramatic natural twenties.
+      </p>
     </header>
   );
 }

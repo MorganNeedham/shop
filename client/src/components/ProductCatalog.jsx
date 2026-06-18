@@ -18,6 +18,7 @@ export default function ProductCatalog({ products, onAddToCart }) {
                 <span>{product.category}</span>
                 <strong>${product.price.toFixed(2)}</strong>
               </div>
+
               <h3>{product.name}</h3>
               <p>{product.description}</p>
               <p className="inventory">Inventory: {product.inventory}</p>

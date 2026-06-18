@@ -12,35 +12,57 @@ app.use(morgan("dev"));
 let products = [
   {
     id: 1,
-    name: "Shadowblade Dagger",
-    category: "Weapons",
-    description: "A sleek dagger favored by rogues and night-stalkers.",
-    price: 79.99,
+    name: "Shadowglass D20 Set",
+    category: "Resin Dice",
+    description:
+      "A sharp-edge seven-piece dice set with black resin, teal shimmer, and violet inked numbers.",
+    price: 34.99,
     inventory: 8,
   },
   {
     id: 2,
-    name: "Moonlit Cloak",
-    category: "Armor",
-    description: "A dark cloak with subtle silver threading.",
-    price: 124.99,
+    name: "Eclipse Metal Dice",
+    category: "Metal Dice",
+    description:
+      "Heavy black nickel dice with cyan numbering and a deep purple enamel finish.",
+    price: 59.99,
     inventory: 5,
   },
   {
     id: 3,
-    name: "Potion of Quickstep",
-    category: "Potions",
-    description: "A shimmering potion said to quicken the drinker's stride.",
-    price: 24.99,
+    name: "Arcane Storm Dice Set",
+    category: "Resin Dice",
+    description:
+      "Swirling teal, indigo, and midnight-black dice made for dramatic table rolls.",
+    price: 29.99,
     inventory: 12,
   },
   {
     id: 4,
-    name: "Enchanted Lockpick Set",
-    category: "Tools",
-    description: "A precise set of tools for delicate work.",
-    price: 49.99,
-    inventory: 6,
+    name: "Void Amethyst Dice",
+    category: "Gemstone Dice",
+    description:
+      "A premium gemstone-style dice set with smoky purple tones and polished arcane edges.",
+    price: 74.99,
+    inventory: 3,
+  },
+  {
+    id: 5,
+    name: "ShadowBlade Dice Tray",
+    category: "Dice Accessories",
+    description:
+      "A foldable black dice tray with teal stitching and a soft rolling surface.",
+    price: 24.99,
+    inventory: 10,
+  },
+  {
+    id: 6,
+    name: "Cursed Critical D20",
+    category: "Single Die",
+    description:
+      "An oversized display d20 with cyan cracks, purple glow effects, and ominous table presence.",
+    price: 18.99,
+    inventory: 7,
   },
 ];
 
