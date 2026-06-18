@@ -3,13 +3,18 @@ export default function Header({ cartCount }) {
     <header className="site-header">
       <div className="header-topline">
         <div className="brand">
-          <img
-            className="header-logo"
-            src="/images/sblogo.png"
-            alt="ShadowBlade Dice Shop logo"
-          />
+          <div className="logo-frame">
+            <img
+              className="header-logo"
+              src="/images/sblogo.png"
+              alt="ShadowBlade Dice Shop logo"
+            />
+          </div>
 
-          <span className="logo-text">ShadowBlade Dice Shop</span>
+          <div className="brand-copy">
+            <span className="logo-text">ShadowBlade Dice Shop</span>
+            <p className="brand-subtitle">Handmade resin dice</p>
+          </div>
         </div>
 
         <span className="cart-pill">Cart Items: {cartCount}</span>

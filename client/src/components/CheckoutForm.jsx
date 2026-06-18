@@ -2,8 +2,8 @@ import { useState } from 'react';
 
 export default function CheckoutForm({ cartItems, onSubmitPurchase, isSubmitting }) {
   const [customer, setCustomer] = useState({
-    name: 'Student User',
-    email: 'student@example.com'
+    name: 'User',
+    email: 'user@example.com'
   });
 
   function handleChange(event) {
@@ -20,7 +20,7 @@ export default function CheckoutForm({ cartItems, onSubmitPurchase, isSubmitting
     <section className="panel">
       <div className="section-title-row">
         <div>
-          <p className="eyebrow">React Submit → Express Fulfillment</p>
+          <p className="eyebrow">Order Details</p>
           <h2>Checkout</h2>
         </div>
       </div>
