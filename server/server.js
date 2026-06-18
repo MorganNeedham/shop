@@ -1,56 +1,121 @@
+import express from "express";
+import cors from "cors";
+import morgan from "morgan";
+
+const app = express();
+const PORT = 4000;
+
+app.use(cors());
+app.use(express.json());
+app.use(morgan("dev"));
+
 let products = [
   {
     id: 1,
-    name: "Shadowglass Dice Set",
-    finish: "Sharp-Edge Resin",
+    name: "Pirate's Dawn Dice Set",
+    finish: "Resin",
     description:
-      "A seven-piece black resin dice set with teal shimmer, violet swirls, and crisp white numbering.",
+      "A seven-piece blue-pink resin dice set with rose-gold flakes and a liquid core inside the d20.",
     price: 34.99,
-    inventory: 8,
+    inventory: 1,
+    imageUrl: "/images/piratesdawn1.jpg",
   },
   {
     id: 2,
-    name: "Arcane Storm Dice Set",
-    finish: "Glitter Resin",
+    name: "Ember Light Dice Set",
+    finish: "Resin",
     description:
-      "Midnight-black dice with cyan glitter suspended through deep purple resin.",
-    price: 29.99,
-    inventory: 12,
+      "A seven-piece red-orange resin dice set with golden glitter and foil accents.",
+    price: 34.99,
+    inventory: 1,
+    imageUrl: "/images/emberlight2.jpg",
   },
   {
     id: 3,
-    name: "Void Amethyst Dice Set",
-    finish: "Polished Resin",
+    name: "Glacial Blue Dice Set",
+    finish: "Resin",
     description:
-      "Smoky purple resin dice with subtle teal flashes and a dark arcane finish.",
-    price: 39.99,
-    inventory: 5,
+      "A seven-piece blue-green and white resin dice set with subtle glitter and threading inside.",
+    price: 34.99,
+    inventory: 1,
+    imageUrl: "/images/glacialblue2.jpg",
   },
   {
     id: 4,
-    name: "Cursed Critical D20",
-    finish: "Oversized Resin D20",
+    name: "Gold Lagoon Dice Set",
+    finish: "Resin",
     description:
-      "A large display-worthy d20 with black resin, cyan crackle effects, and violet numbering.",
-    price: 18.99,
-    inventory: 7,
-  },
-  {
-    id: 5,
-    name: "Moonlit Rogue Dice Set",
-    finish: "Matte Resin",
-    description:
-      "A stealthy matte-black dice set with teal inked numbers and faint purple marbling.",
-    price: 32.99,
-    inventory: 6,
-  },
-  {
-    id: 6,
-    name: "Eldritch Tide Dice Set",
-    finish: "Liquid-Core Resin",
-    description:
-      "A swirling liquid-core set with shifting cyan and violet movement inside each die.",
-    price: 44.99,
-    inventory: 4,
+      "A seven-piece blue-green resin dice set with gold foil accents.",
+    price: 34.99,
+    inventory: 1,
+    imageUrl: "/images/goldlagoon1.jpg",
   },
 ];
+
+app.get("/api/products", (req, res) => {
+  res.json({ products });
+});
+
+app.post("/api/purchase", (req, res) => {
+  const { customer, cartItems } = req.body;
+
+  if (!customer || !customer.name || !customer.email) {
+    return res.status(400).json({
+      message: "Customer name and email are required.",
+    });
+  }
+
+  if (!cartItems || cartItems.length === 0) {
+    return res.status(400).json({
+      message: "Cart items are required.",
+    });
+  }
+
+  for (const item of cartItems) {
+    const product = products.find((product) => product.id === item.productId);
+
+    if (!product) {
+      return res.status(404).json({
+        message: `Product not found: ${item.name}`,
+      });
+    }
+
+    if (product.inventory < item.quantity) {
+      return res.status(400).json({
+        message: `Not enough inventory for ${product.name}.`,
+      });
+    }
+  }
+
+  products = products.map((product) => {
+    const cartItem = cartItems.find((item) => item.productId === product.id);
+
+    if (!cartItem) {
+      return product;
+    }
+
+    return {
+      ...product,
+      inventory: product.inventory - cartItem.quantity,
+    };
+  });
+
+  const total = cartItems.reduce((sum, item) => {
+    return sum + item.price * item.quantity;
+  }, 0);
+
+  res.status(201).json({
+    order: {
+      id: Date.now(),
+      customer,
+      items: cartItems,
+      total,
+      status: "Confirmed",
+      createdAt: new Date().toISOString(),
+    },
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});

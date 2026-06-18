@@ -6,11 +6,10 @@ export default function Header({ cartCount }) {
         <span className="cart-pill">Cart Items: {cartCount}</span>
       </div>
 
-      <h1>Sharp-edge dice for dangerous rolls</h1>
+      <h1>Handmade Dice Sets for Every Adventurer</h1>
 
       <p>
-        Shop black, teal, and violet dice sets built for rogues, spellcasters,
-        dungeon delvers, and dramatic natural twenties.
+        Shop from our wide selection of high-quality dice sets, perfect for tabletop gaming. Whether you're a seasoned adventurer or just starting your journey, let us be a part of your story!
       </p>
     </header>
   );

@@ -5,7 +5,7 @@ export default function Cart({ cartItems, onIncrement, onDecrement, onRemove }) 
     <section className="panel">
       <div className="section-title-row">
         <div>
-          <p className="eyebrow">React State</p>
+          <p className="eyebrow">Dice</p>
           <h2>Shopping Cart</h2>
         </div>
       </div>
