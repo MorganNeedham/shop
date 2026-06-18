@@ -17,7 +17,7 @@ let products = [
     description:
       "A seven-piece blue-pink resin dice set with rose-gold flakes and a liquid core inside the d20.",
     price: 34.99,
-    inventory: 1,
+    inventory: 4,
     imageUrl: "/images/piratesdawn1.jpg",
   },
   {
@@ -27,7 +27,7 @@ let products = [
     description:
       "A seven-piece red-orange resin dice set with golden glitter and foil accents.",
     price: 34.99,
-    inventory: 1,
+    inventory: 4,
     imageUrl: "/images/emberlight2.jpg",
   },
   {
@@ -37,7 +37,7 @@ let products = [
     description:
       "A seven-piece blue-green and white resin dice set with subtle glitter and threading inside.",
     price: 34.99,
-    inventory: 1,
+    inventory: 4,
     imageUrl: "/images/glacialblue2.jpg",
   },
   {
@@ -47,7 +47,7 @@ let products = [
     description:
       "A seven-piece blue-green resin dice set with gold foil accents.",
     price: 34.99,
-    inventory: 1,
+    inventory: 7,
     imageUrl: "/images/goldlagoon1.jpg",
   },
 ];

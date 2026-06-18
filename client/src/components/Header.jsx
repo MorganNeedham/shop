@@ -15,17 +15,18 @@ export default function Header({ cartCount, onCartClick }) {
         </div>
 
         <div className="hero-copy">
-          <div className="brand-copy">
-            <span className="logo-text">ShadowBlade Dice Shop</span>
-            <p className="brand-subtitle">Handmade Resin Dice</p>
-          </div>
+          <p className="brand-kicker">Handmade resin dice</p>
 
-          <h1>Handmade Dice Sets for Every Adventurer</h1>
+          <h1 className="brand-title">ShadowBlade Dice</h1>
+
+          <h2 className="hero-tagline">
+            Handmade Dice Sets for Every Adventurer
+          </h2>
 
           <p>
-            Shop from our wide selection of high-quality dice sets, perfect for
-            tabletop gaming. Whether you're a seasoned adventurer or just
-            starting your journey, let us be a part of your story!
+            Shop a curated collection of high-quality dice sets for tabletop
+            players, collectors, and adventurers looking for their next favorite
+            roll.
           </p>
         </div>
       </div>

@@ -59,13 +59,6 @@ button:disabled {
     0 0 40px rgba(0, 229, 255, 0.08);
 }
 
-.header-topline {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
 .cart-pill {
   position: absolute;
   top: 34px;
@@ -106,49 +99,47 @@ button:disabled {
   object-fit: contain;
   transform: scale(1.12);
   filter:
-    drop-shadow(0 0 16px rgba(0, 229, 255, 0.55)) drop-shadow(0 0 30px rgba(147, 51, 234, 0.4));
+    drop-shadow(0 0 16px rgba(0, 229, 255, 0.55))
+    drop-shadow(0 0 30px rgba(147, 51, 234, 0.4));
 }
 
 .hero-copy {
   display: grid;
-  gap: 18px;
+  gap: 12px;
+  padding-right: 120px;
 }
 
-.brand-copy {
-  display: grid;
-  justify-items: center;
-  width: fit-content;
-  gap: 5px;
-  margin-bottom: 4px;
-}
-
-.logo-text {
-  display: block;
-  color: #67e8f9;
-  font-size: 1rem;
-  font-weight: 950;
-  letter-spacing: 0.1em;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.brand-subtitle {
+.brand-kicker {
   margin: 0;
-  color: #c4b5fd;
+  color: #67e8f9;
   font-size: 0.82rem;
-  font-weight: 850;
-  letter-spacing: 0.12em;
-  text-align: center;
+  font-weight: 950;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-.hero-copy h1 {
+.brand-title {
   max-width: 980px;
   margin: 0;
-  font-size: clamp(2.7rem, 5vw, 5.25rem);
-  line-height: 0.95;
-  letter-spacing: -0.06em;
-  text-shadow: 0 0 28px rgba(147, 51, 234, 0.35);
+  color: #f8f5ff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-shadow:
+    0 0 24px rgba(0, 229, 255, 0.22),
+    0 0 34px rgba(147, 51, 234, 0.35);
+}
+
+.hero-tagline {
+  max-width: 900px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3.7rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  text-shadow: 0 0 24px rgba(147, 51, 234, 0.25);
 }
 
 .hero-copy p {
@@ -643,6 +634,10 @@ button:disabled {
     width: 210px;
     height: 210px;
   }
+
+  .hero-copy {
+    padding-right: 80px;
+  }
 }
 
 @media (max-width: 760px) {
@@ -662,13 +657,8 @@ button:disabled {
     transform: scale(1.1);
   }
 
-  .brand-copy {
-    justify-items: start;
-  }
-
-  .logo-text,
-  .brand-subtitle {
-    text-align: left;
+  .hero-copy {
+    padding-right: 0;
   }
 
   .product-detail-grid {
@@ -690,14 +680,10 @@ button:disabled {
     padding: 24px;
   }
 
-  .header-topline {
-    justify-content: flex-start;
+  .cart-pill {
+    position: static;
+    width: fit-content;
     margin-bottom: 24px;
-  }
-
-  .section-title-row {
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   .hero-content {
@@ -716,12 +702,21 @@ button:disabled {
     transform: scale(1.1);
   }
 
-  .hero-copy h1 {
-    font-size: clamp(2.2rem, 13vw, 3.2rem);
+  .brand-title {
+    font-size: clamp(3.2rem, 17vw, 5rem);
+  }
+
+  .hero-tagline {
+    font-size: clamp(2rem, 11vw, 3rem);
   }
 
   .hero-copy p {
     font-size: 1rem;
+  }
+
+  .section-title-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .product-card {

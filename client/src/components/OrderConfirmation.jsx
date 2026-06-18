@@ -14,7 +14,7 @@ export default function OrderConfirmation({ order, onContinueShopping }) {
 
       <p>
         Your demo order has been received. No payment has been processed — this
-        checkout is part of Morgan’s software development portfolio.
+        checkout is part of Morgan's software development portfolio.
       </p>
 
       <p>
