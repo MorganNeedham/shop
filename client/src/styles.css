@@ -611,7 +611,6 @@ button:disabled {
 }
 
 /* RESPONSIVE */
-/* RESPONSIVE */
 
 @media (max-width: 1100px) {
   .layout-grid {
@@ -662,6 +661,8 @@ button:disabled {
   }
 
   .hero-copy {
+    width: 100%;
+    max-width: 100%;
     padding-right: 0;
     min-width: 0;
   }
@@ -682,7 +683,7 @@ button:disabled {
   }
 
   .site-header {
-    padding: 22px 26px 28px;
+    padding: 22px 20px 28px;
     overflow: hidden;
   }
 
@@ -694,7 +695,7 @@ button:disabled {
 
   .hero-content {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 18px;
   }
 
   .hero-logo-wrap {
@@ -710,29 +711,33 @@ button:disabled {
   }
 
   .hero-copy {
+    width: 100%;
+    max-width: 100%;
     padding-right: 0;
     min-width: 0;
   }
 
   .brand-title {
+    width: 100%;
     max-width: 100%;
-    font-size: clamp(2.65rem, 14vw, 3.8rem);
-    line-height: 0.92;
-    letter-spacing: -0.04em;
-    overflow-wrap: break-word;
+    font-size: clamp(2.1rem, 10.5vw, 2.95rem);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
   }
 
   .hero-tagline {
+    width: 100%;
     max-width: 100%;
-    font-size: clamp(1.35rem, 7vw, 2rem);
-    line-height: 1.08;
-    letter-spacing: -0.035em;
+    font-size: clamp(1.25rem, 6.3vw, 1.75rem);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
     white-space: normal;
   }
 
   .hero-copy p {
+    width: 100%;
     max-width: 100%;
-    font-size: 0.98rem;
+    font-size: 0.95rem;
     line-height: 1.55;
   }
 
