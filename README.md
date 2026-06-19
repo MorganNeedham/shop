@@ -1,8 +1,8 @@
 # ShadowBlade Dice Shop
 
-ShadowBlade Dice Shop is a full-stack e-commerce demo built for a handmade dice shop concept. The project features a React and Vite frontend, an Express backend API, product inventory, cart functionality, and a demo checkout flow.
+ShadowBlade Dice Shop is a full-stack e-commerce demo for a handmade dice shop concept. It features a React and Vite frontend, an Express backend API, product inventory, cart functionality, and a demo checkout flow.
 
-This project was created as part of my software development learning journey and is designed to demonstrate frontend structure, API communication, state management, responsive design, and full-stack project organization.
+The project was built to demonstrate practical frontend development, API communication, React state management, responsive design, and full-stack project organization.
 
 ## Preview
 
@@ -14,7 +14,7 @@ This project was created as part of my software development learning journey and
 
 https://morganneedham.github.io/shop/
 
-> Note: The live GitHub Pages version uses demo data because GitHub Pages only hosts static frontend files. The local development version connects to the Express backend.
+> Note: The live GitHub Pages version uses demo data because GitHub Pages hosts static frontend files. The local development version connects to the Express backend API.
 
 ## GitHub Repository
 
@@ -24,13 +24,13 @@ https://github.com/MorganNeedham/shop
 
 * Responsive React frontend built with Vite
 * Express backend API for product data and purchase submission
-* Product catalog with images, prices, descriptions, and inventory
+* Product catalog with images, prices, descriptions, finish types, and inventory
 * Shopping cart with quantity controls and subtotal calculation
-* Demo checkout form
-* Order confirmation / thank-you screen
-* Custom dark fantasy-inspired styling
-* Mobile-friendly layout
-* GitHub Pages deployment setup for the frontend
+* Demo checkout form with order confirmation
+* Inventory updates after demo purchase submission
+* Custom dark fantasy-inspired UI design
+* Mobile-friendly responsive layout
+* GitHub Pages deployment for the frontend
 
 ## Tech Stack
 
@@ -56,6 +56,21 @@ https://github.com/MorganNeedham/shop
 * VS Code
 * GitHub Pages
 
+## Skills Demonstrated
+
+This project demonstrates:
+
+* Building reusable React components
+* Managing state with React hooks
+* Passing props between parent and child components
+* Fetching and displaying data from an API
+* Handling loading and error states
+* Creating cart and checkout functionality
+* Updating inventory after purchase submission
+* Structuring a full-stack project with separate client and server folders
+* Writing responsive CSS for desktop and mobile layouts
+* Preparing and deploying a frontend project with GitHub Pages
+
 ## Project Structure
 
 ```text
@@ -76,6 +91,8 @@ shop
 ├── .github
 │   └── workflows
 │       └── deploy-client.yml
+├── docs
+│   └── shop_screenshot.png
 └── README.md
 ```
 
@@ -123,29 +140,16 @@ http://localhost:5173
 
 The checkout flow is a portfolio demo. No real payment is processed. Submitting an order updates the demo inventory and displays a confirmation screen.
 
-## What I Learned
-
-While building this project, I practiced:
-
-* Creating reusable React components
-* Managing state with React hooks
-* Passing props between components
-* Fetching data from an Express API
-* Handling loading and error states
-* Building cart and checkout logic
-* Structuring a full-stack project
-* Styling a responsive interface with custom CSS
-* Preparing a project for GitHub and portfolio presentation
-
 ## Future Improvements
 
-Possible future updates include:
+Planned or possible future updates include:
 
 * Deploying the Express backend to a hosting service
-* Connecting the frontend to a live API instead of demo data
+* Connecting the live frontend to a deployed API
 * Adding persistent database storage
 * Adding product detail pages
 * Adding image galleries for each dice set
+* Preventing cart quantities from exceeding available inventory
 * Improving accessibility and keyboard navigation
 * Adding automated tests
 * Creating an admin view for managing inventory
