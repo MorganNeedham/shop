@@ -1,4 +1,6 @@
 export default function Header({ cartCount, onCartClick }) {
+  const logoUrl = `${import.meta.env.BASE_URL}images/sblogo.png`;
+
   return (
     <header className="site-header">
       <button className="cart-pill" onClick={onCartClick}>
@@ -9,13 +11,12 @@ export default function Header({ cartCount, onCartClick }) {
         <div className="hero-logo-wrap">
           <img
             className="hero-logo"
-            src="/shop/images/sblogo.png"
-            alt="ShadowBlade Dice Shop logo"
+            src={logoUrl}
+            alt="ShadowBlade Dice logo"
           />
         </div>
 
         <div className="hero-copy">
-
           <h1 className="brand-title">ShadowBlade Dice</h1>
 
           <h2 className="hero-tagline">
