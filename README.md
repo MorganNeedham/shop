@@ -6,7 +6,7 @@ This project was created as part of my software development learning journey and
 
 ## Preview
 
-![ShadowBlade Dice Shop preview]shop_screenshot.png)
+![ShadowBlade Dice Shop preview](docs/shop_screenshot.png)
 
 ## Live Demo
 
