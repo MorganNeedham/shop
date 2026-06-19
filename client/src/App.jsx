@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { fetchProducts, submitPurchase } from './api/catalogApi.js';
 import Header from './components/Header.jsx';
 import ProductCatalog from './components/ProductCatalog.jsx';
+import ProductDetail from './components/ProductDetail.jsx';
 import Cart from './components/Cart.jsx';
 import CheckoutForm from './components/CheckoutForm.jsx';
 import OrderConfirmation from './components/OrderConfirmation.jsx';
@@ -49,6 +50,7 @@ export default function App() {
 
   function addToCart(product) {
     setOrder(null);
+
     setCartItems((current) => {
       const existing = current.find((item) => item.productId === product.id);
 
@@ -104,9 +106,13 @@ export default function App() {
     try {
       setIsSubmitting(true);
       setError('');
+
       const data = await submitPurchase({ customer, cartItems });
+
       setOrder(data.order);
       setCartItems([]);
+      setSelectedProduct(null);
+
       await loadProducts();
     } catch (err) {
       setError(err.message);
