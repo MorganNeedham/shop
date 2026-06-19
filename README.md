@@ -7,7 +7,7 @@ This project was created as part of my software development learning journey and
 ## Preview
 
 <p align="center">
-  <img src="docs/shop_screenshot.png" alt="ShadowBlade Dice Shop preview" width="600">
+  <img src="docs/shop_screenshot.png" alt="ShadowBlade Dice Shop preview" width="800">
 </p>
 
 ## Live Demo
