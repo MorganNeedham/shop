@@ -4,6 +4,10 @@ ShadowBlade Dice Shop is a full-stack e-commerce demo built for a handmade dice 
 
 This project was created as part of my software development learning journey and is designed to demonstrate frontend structure, API communication, state management, responsive design, and full-stack project organization.
 
+## Preview
+
+![ShadowBlade Dice Shop preview]shop_screenshot.png)
+
 ## Live Demo
 
 https://morganneedham.github.io/shop/
