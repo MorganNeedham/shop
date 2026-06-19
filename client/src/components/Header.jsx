@@ -9,7 +9,7 @@ export default function Header({ cartCount, onCartClick }) {
         <div className="hero-logo-wrap">
           <img
             className="hero-logo"
-            src="/images/sblogo.png"
+            src="/shop/images/sblogo.png"
             alt="ShadowBlade Dice Shop logo"
           />
         </div>
