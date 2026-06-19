@@ -11,6 +11,7 @@ export default function App() {
   const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [order, setOrder] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
@@ -131,7 +132,19 @@ export default function App() {
         />
       ) : (
         <main className="layout-grid">
-          <ProductCatalog products={products} onAddToCart={addToCart} />
+          {selectedProduct ? (
+            <ProductDetail
+              product={selectedProduct}
+              onClose={() => setSelectedProduct(null)}
+              onAddToCart={addToCart}
+            />
+          ) : (
+            <ProductCatalog
+              products={products}
+              onAddToCart={addToCart}
+              onViewProduct={setSelectedProduct}
+            />
+          )}
 
           <aside className="sidebar" ref={checkoutRef}>
             <Cart

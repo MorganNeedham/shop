@@ -13,42 +13,58 @@ let products = [
   {
     id: 1,
     name: "Pirate's Dawn Dice Set",
-    finish: "Resin",
     description:
       "A seven-piece blue-pink resin dice set with rose-gold flakes and a liquid core inside the d20.",
     price: 34.99,
     inventory: 4,
-    imageUrl: "shop/images/piratesdawn1.jpg",
+    imageUrl: "images/piratesdawn1.jpg",
+    images: [
+      "images/piratesdawn1.jpg",
+      "images/piratesdawn2.jpg",
+      "images/piratesdawn3.jpg",
+    ],
   },
   {
     id: 2,
     name: "Ember Light Dice Set",
-    finish: "Resin",
     description:
       "A seven-piece red-orange resin dice set with golden glitter and foil accents.",
     price: 34.99,
     inventory: 4,
-    imageUrl: "shop/images/emberlight2.jpg",
+    imageUrl: "images/emberlight2.jpg",
+    images: [
+      "images/emberlight1.jpg",
+      "images/emberlight2.jpg",
+      "images/emberlight3.jpg",
+    ],
   },
   {
     id: 3,
     name: "Glacial Blue Dice Set",
-    finish: "Resin",
     description:
       "A seven-piece blue-green and white resin dice set with subtle glitter and threading inside.",
     price: 34.99,
     inventory: 4,
-    imageUrl: "shop/images/glacialblue2.jpg",
+    imageUrl: "images/glacialblue2.jpg",
+    images: [
+      "images/glacialblue1.jpg",
+      "images/glacialblue2.jpg",
+      "images/glacialblue3.jpg",
+    ],
   },
   {
     id: 4,
     name: "Gold Lagoon Dice Set",
-    finish: "Resin",
     description:
       "A seven-piece blue-green resin dice set with gold foil accents.",
     price: 34.99,
     inventory: 7,
-    imageUrl: "shop/images/goldlagoon1.jpg",
+    imageUrl: "images/goldlagoon1.jpg",
+    images: [
+      "images/goldlagoon1.jpg",
+      "images/goldlagoon2.jpg",
+      "images/goldlagoon3.jpg",
+    ],
   },
 ];
 
@@ -76,7 +92,7 @@ app.post("/api/purchase", (req, res) => {
 
     if (!product) {
       return res.status(404).json({
-        message: `Product not found: ${item.name}`,
+        message: `Product not found: ${item.name}.`,
       });
     }
 
@@ -119,4 +135,3 @@ app.post("/api/purchase", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
-
